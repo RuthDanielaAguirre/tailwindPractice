@@ -1,0 +1,303 @@
+/* src/style.css */
+@import "tailwindcss";
+
+/* ===================================
+   TEMA Y TOKENS PERSONALIZADOS
+   =================================== */
+@theme {
+  --color-brand: #3b82f6;
+  --color-accent: #8b5cf6;
+  --glow-color: rgb(59 130 246 / 0.5);
+}
+
+/* ===================================
+   COMPONENTES REUTILIZABLES
+   Sin @layer - Directamente en el CSS
+   =================================== */
+
+/* Botón base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-brand);
+}
+
+/* Botón primario con glow */
+.btn-primary {
+  background-color: var(--color-brand);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+/* Botón con efecto GLOW animado */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-brand);
+  color: white;
+  box-shadow: 0 0 20px var(--glow-color);
+  transition: all 0.3s;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.btn-glow:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-glow:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 30px var(--glow-color),
+    0 0 60px var(--glow-color);
+}
+
+.btn-glow:active {
+  transform: scale(0.95);
+}
+
+/* Botón secundario (ghost) */
+.btn-ghost {
+  border: 2px solid #d1d5db;
+  color: #374151;
+  background-color: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  background-color: #eff6ff;
+}
+
+:is(.dark .btn-ghost) {
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+:is(.dark .btn-ghost):hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  background-color: #1e293b;
+}
+
+/* Botón con gradiente */
+.btn-gradient {
+  background: linear-gradient(90deg, #3b82f6, #a855f7);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjeta base */
+.card {
+  border-radius: 1rem;
+  border: 1px solid #000c24;
+  background-color: white;
+  color: #db5e0ad3;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card p{
+  color:#d82809;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  color: white;
+}
+
+:is(.dark .card) {
+  border-color: #334155;
+  background-color: #1e293b;
+}
+
+/* Input con estilo */
+.input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  padding: 0.75rem 1rem;
+  color: #111827;
+  transition: all 0.2s;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input:invalid {
+  border-color: #ef4444;
+}
+
+.input:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+:is(.dark .input) {
+  border-color: #475569;
+  background-color: #1e293b;
+  color: white;
+}
+
+:is(.dark .input)::placeholder {
+  color: #64748b;
+}
+
+/* Badge/Chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+:is(.dark .chip) {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+}
+
+/* Contenedor con glow sutil */
+.glow-container {
+  position: relative;
+}
+
+.glow-container::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #3b82f6, #a855f7);
+  opacity: 0;
+  filter: blur(40px);
+  z-index: -1;
+  transition: opacity 0.5s;
+}
+
+.glow-container:hover::before {
+  opacity: 0.7;
+}
+
+/* ===================================
+   ANIMACIONES PERSONALIZADAS
+   =================================== */
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 
+      0 0 10px var(--glow-color),
+      0 0 20px var(--glow-color);
+  }
+  to {
+    box-shadow: 
+      0 0 20px var(--glow-color),
+      0 0 40px var(--glow-color);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Fade in con Intersection Observer */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.fade-in.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================================
+   UTILIDADES EXTRAS
+   =================================== */
+
+/* Para los enlaces del nav */
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #edeff1;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--color-brand);
+}
+
+:is(.dark .nav-link) {
+  color: #cbd5e1;
+}
+
+:is(.dark .nav-link):hover {
+  color: var(--color-brand);
+}
+
+/* Para el botón activo en filtros */
+.filter-btn.active {
+  background-color: var(--color-brand);
+  color: white;
+}

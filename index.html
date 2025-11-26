@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz Moderna con Tailwind v4.1</title>
+  
+  <!-- Prevenir flash de tema oscuro -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
+  
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 antialiased">
+  
+  <!-- ===================================
+       NAVBAR
+       =================================== -->
+<nav class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg dark:border-slate-800 dark:bg-slate-900/80">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-blue-500 to-purple-600">
+          <span class="text-2xl">⚡</span>
+        </div>
+        <span class="text-xl font-bold" style="color: var(--color-brand);">Learning TW4</span>
+      </div>
+      
+      <!-- Nav Links -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#features" class="nav-link">Características</a>
+        <a href="#pricing" class="nav-link">Precios</a>
+        <a href="#contact" class="nav-link">Contacto</a>
+      </div>
+      
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="rounded-lg p-2 hover:bg-gray-100 transition dark:hover:bg-slate-800">
+          🌙
+        </button>
+        <button class="btn btn-ghost hidden sm:inline-flex">
+          Iniciar Sesión
+        </button>
+        <button class="btn btn-primary">
+          Empezar Gratis
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <!-- ===================================
+       HERO SECTION
+       =================================== -->
+  <section class="relative overflow-hidden px-4 py-20 sm:py-32">
+    <!-- Gradient Background -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-purple-900/20 dark:to-slate-900"></div>
+    
+    <!-- Decorative elements -->
+    <div class="absolute -left-4 top-20 h-72 w-72 rounded-full bg-purple-300/30 blur-3xl dark:bg-purple-500/10"></div>
+    <div class="absolute -right-4 top-40 h-72 w-72 rounded-full bg-blue-300/30 blur-3xl dark:bg-blue-500/10"></div>
+    
+    <div class="relative mx-auto max-w-7xl">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <!-- Content -->
+        <div class="text-center lg:text-left">
+          <!-- Badge -->
+          <div class="mb-6 inline-flex">
+            <span class="chip animate-pulse">
+              ✨ Nuevo en v4.1
+            </span>
+          </div>
+          
+          <!-- Heading -->
+          <h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            Crea Interfaces
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Increíbles
+            </span>
+          </h1>
+          
+          <p class="mb-8 text-lg text-gray-600 dark:text-slate-300 sm:text-xl">
+            Diseña experiencias modernas y responsivas con Tailwind CSS v4.1. 
+            Rápido, flexible y totalmente personalizable.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <button class="btn-glow group rounded-2xl mx-4 px-8">
+              <span>Comenzar Ahora</span>
+              <svg class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </button>
+            
+            
+
+              <a href="https://tailwindcss.com/blog/tailwindcss-v4" class="btn-ghost rounded-2xl mx-4 px-8">
+              <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+              </svg>
+              Ver Demo
+            </a>
+          </div>
+          
+          <!-- Stats -->
+          <div class="mt-12 flex flex-wrap gap-8 justify-center lg:justify-start">
+     
+          </div>
+        </div>
+        
+        <!-- Visual -->
+        <div class="glow-container">
+          <div class="card animate-float">
+            <div class="mb-4 flex items-center gap-3">
+              <div class="h-12 w-12 rounded-full bg-linear-to-br from-blue-500 to-purple-600"></div>
+              <div>
+                <div class="h-3 w-32 rounded bg-gray-200 dark:bg-slate-700"></div>
+                <div class="mt-2 h-2 w-20 rounded bg-gray-100 dark:bg-slate-800"></div>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="h-4 w-full rounded bg-gray-100 dark:bg-slate-700"></div>
+              <div class="h-4 w-5/6 rounded bg-gray-100 dark:bg-slate-700"></div>
+              <div class="h-4 w-4/6 rounded bg-gray-100 dark:bg-slate-700"></div>
+            </div>
+            
+            <div class="mt-6 flex gap-2">
+              <div class="h-10 flex-1 rounded-lg bg-linear-to-r from-blue-500 to-purple-600"></div>
+              <div class="h-10 w-20 rounded-lg bg-gray-200 dark:bg-slate-700"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       FEATURES SECTION
+       =================================== -->
+  <section id="features" class="px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+      <!-- Header -->
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-4xl font-bold">Características Principales</h2>
+        <p class="text-lg text-gray-600 dark:text-slate-300">
+          Todo lo que necesitas para crear interfaces modernas
+        </p>
+      </div>
+      
+      <!-- Features Grid -->
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Feature 1 -->
+        <div class="group card">
+          <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-2xl transition-transform group-hover:scale-110 dark:bg-blue-900/30">
+            ⚡
+          </div>
+          <h3 class="mb-2 text-xl font-semibold">Ultra Rápido</h3>
+          <p class="text-gray-600 dark:text-slate-300">
+            Construcción optimizada con CSS a demanda. Solo genera lo que usas.
+          </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="group card">
+          <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-purple-100 text-2xl transition-transform group-hover:scale-110 dark:bg-purple-900/30">
+            🎨
+          </div>
+          <h3 class="mb-2 text-xl font-semibold">Totalmente Personalizable</h3>
+          <p class="text-gray-600 dark:text-slate-300">
+            Crea tu propio sistema de diseño con tokens y variables CSS.
+          </p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="group card">
+          <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-pink-100 text-2xl transition-transform group-hover:scale-110 dark:bg-pink-900/30">
+            📱
+          </div>
+          <h3 class="mb-2 text-xl font-semibold">Mobile First</h3>
+          <p class="text-gray-600 dark:text-slate-300">
+            Diseño responsive por defecto con breakpoints intuitivos.
+          </p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="group card">
+          <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-green-100 text-2xl transition-transform group-hover:scale-110 dark:bg-green-900/30">
+            🌙
+          </div>
+          <h3 class="mb-2 text-xl font-semibold">Modo Oscuro</h3>
+          <p class="text-gray-600 dark:text-slate-300">
+            Soporte nativo para modo oscuro con la variante dark:.
+          </p>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="group card">
+          <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-yellow-100 text-2xl transition-transform group-hover:scale-110 dark:bg-yellow-900/30">
+            ♿
+          </div>
+          <h3 class="mb-2 text-xl font-semibold">Accesible</h3>
+          <p class="text-gray-600 dark:text-slate-300">
+            Construido con las mejores prácticas de accesibilidad.
+          </p>
+        </div>
+        
+        <!-- Feature 6 -->
+        <div class="group card">
+          <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-indigo-100 text-2xl transition-transform group-hover:scale-110 dark:bg-indigo-900/30">
+            🔧
+          </div>
+          <h3 class="mb-2 text-xl font-semibold">Fácil Integración</h3>
+          <p class="text-gray-600 dark:text-slate-300">
+            Compatible con React, Vue, Svelte y cualquier framework.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       DEMO BUTTONS SECTION
+       =================================== -->
+  <section class="px-4 py-20 bg-gray-100 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-4xl font-bold">Galería de Botones</h2>
+        <p class="text-lg text-gray-600 dark:text-slate-300">
+          Todos los estilos de botones con efectos funcionales
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Botón Primario -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-slate-400">Primario</h4>
+            <button class="btn-primary w-full">
+              Botón Primario
+            </button>
+          </div>
+          
+          <!-- Botón con Glow -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-slate-400">Con Glow</h4>
+            <button class="btn-glow w-full">
+              Botón Glow ✨
+            </button>
+          </div>
+          
+          <!-- Botón Ghost -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-slate-400">Ghost</h4>
+            <button class="btn-ghost w-full">
+              Botón Ghost
+            </button>
+          </div>
+          
+          <!-- Botón Gradiente -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-slate-400">Gradiente</h4>
+            <button class="btn-gradient w-full">
+              Botón Gradiente
+            </button>
+          </div>
+          
+          <!-- Botón con Icono -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-slate-400">Con Icono</h4>
+            <button class="btn-primary w-full">
+              <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+              </svg>
+              Crear Nuevo
+            </button>
+          </div>
+          
+          <!-- Botón Animado -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-slate-400">Animado</h4>
+            <button class="btn-primary w-full animate-glow">
+              Botón Animado
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       FORM SECTION
+       =================================== -->
+  <section id="contact" class="px-4 py-20">
+    <div class="mx-auto max-w-2xl">
+      <div class="card">
+        <div class="mb-8 text-center">
+          <h2 class="mb-2 text-3xl font-bold">Suscríbete a nuestro Newsletter</h2>
+          <p class="text-gray-600 dark:text-slate-300">
+            Recibe las últimas novedades y recursos directamente en tu correo
+          </p>
+        </div>
+        
+        <form id="newsletter-form" class="space-y-6">
+          <!-- Email Input con peer validation -->
+          <div>
+            <label for="email" class="mb-2 block text-sm font-medium">
+              Email
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              required
+              placeholder="tu@correo.com"
+              class="peer input"
+            >
+            <p class="mt-2 hidden text-sm text-red-600 peer-invalid:block">
+              Por favor, introduce un email válido
+            </p>
+          </div>
+          
+          <!-- Name Input -->
+          <div>
+            <label for="name" class="mb-2 block text-sm font-medium">
+              Nombre (opcional)
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name"
+              placeholder="Tu nombre"
+              class="input"
+            >
+          </div>
+          
+          <!-- Checkbox -->
+          <div class="flex items-start gap-3">
+            <input 
+              type="checkbox" 
+              id="terms" 
+              required
+              class="mt-1 h-4 w-4 rounded border-gray-300 text-brand focus:ring-brand"
+            >
+            <label for="terms" class="text-sm text-gray-600 dark:text-slate-300">
+              Acepto recibir comunicaciones por email y entiendo que puedo cancelar en cualquier momento
+            </label>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="btn-glow w-full">
+            Suscribirme Ahora
+          </button>
+          
+          <p class="text-center text-xs text-gray-500 dark:text-slate-400">
+            🔒 Tu información está segura y nunca será compartida
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       FOOTER
+       =================================== -->
+  <footer class="border-t border-gray-200 bg-white px-4 py-12 dark:border-slate-800 dark:bg-slate-900">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Brand -->
+        <div>
+          <div class="mb-4 flex items-center gap-2">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-blue-500 to-purple-600">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <span class="text-xl font-bold text-brand">Learning TW4</span>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-slate-400">
+            Creando experiencias web increíbles con Tailwind CSS v4.1
+          </p>
+        </div>
+        
+        <!-- Links columns -->
+        <div>
+          <h4 class="mb-4 font-semibold">Producto</h4>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-400">
+            <li><a href="#" class="hover:text-brand transition">Características</a></li>
+            <li><a href="#" class="hover:text-brand transition">Precios</a></li>
+            <li><a href="#" class="hover:text-brand transition">Documentación</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="mb-4 font-semibold">Empresa</h4>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-400">
+            <li><a href="#" class="hover:text-brand transition">Sobre nosotros</a></li>
+            <li><a href="#" class="hover:text-brand transition">Blog</a></li>
+            <li><a href="#" class="hover:text-brand transition">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="mb-4 font-semibold">Legal</h4>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-400">
+            <li><a href="#" class="hover:text-brand transition">Privacidad</a></li>
+            <li><a href="#" class="hover:text-brand transition">Términos</a></li>
+            <li><a href="#" class="hover:text-brand transition">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+    </div>
+  </footer>
+
+  <script type="module" src="/src/script.js"></script>
+</body>
+</html>
