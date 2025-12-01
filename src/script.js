@@ -1,8 +1,5 @@
 // src/main.js
 
-// ===================================
-// MODO OSCURO CON PERSISTENCIA
-// ===================================
 function initTheme() {
   const theme = localStorage.getItem('theme')
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
