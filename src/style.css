@@ -298,3 +298,39 @@
   background-color: var(--color-brand);
   color: white;
 }
+
+
+/* ==============================
+   ANIMACIONES TAMAGOTCHI
+   ============================== */
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-12px); }
+  60%  { transform: translateY(0); }
+  80%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+.bounce-animation {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(6deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-6deg); }
+  100% { transform: rotate(0deg); }
+}
+.shake-animation {
+  animation: shake 0.5s ease;
+}
+
+@keyframes sleep {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.sleep-animation {
+  animation: sleep 1.5s ease-in-out;
+}

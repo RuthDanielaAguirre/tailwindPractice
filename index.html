@@ -37,12 +37,7 @@
       <!-- Actions -->
       <div class="flex items-center gap-3">
         <a href="#features" class="btn btn-ghost">Características</a>
-        <button class="btn btn-ghost hidden sm:inline-flex">
-          Iniciar Sesión
-        </button>
-        <button class="btn btn-primary">
-          Tamagotchi
-        </button>
+       
            <button id="theme-toggle" class="rounded-lg p-2 hover:bg-gray-100 transition dark:hover:bg-slate-800">
           🌙
         </button>
@@ -50,6 +45,69 @@
     </div>
   </div>
 </nav>
+
+<!-- MINI JUEGO TAMAGOTCHI -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="open-tamagotchi"
+    class="btn-glow rounded-full px-6 py-3 shadow-xl">
+    🐣 Abrir Tamagotchi
+  </button>
+</div>
+
+<div id="tamagotchi-modal"
+  class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+
+  <div class="card max-w-md w-full relative">
+
+    <button id="close-tamagotchi"
+      class="absolute top-3 right-3 text-xl hover:scale-125 transition">
+      ✖
+    </button>
+
+    <h2 class="text-3xl font-bold mb-6 text-center">🐣 Mi Tamagotchi</h2>
+
+    <div class="flex justify-center mb-6">
+      <img id="tama-img" src="./src/assets/normal.jpg"
+           class="w-32 h-32 animate-float" />
+    </div>
+
+    <div class="space-y-4">
+
+      <div>
+        <p class="font-semibold mb-1">🍗 Hambre</p>
+        <div class="bg-gray-300 dark:bg-slate-700 h-4 rounded overflow-hidden">
+          <div id="hunger-bar" class="bg-green-500 h-full" style="width:50%"></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-semibold mb-1">🎉 Felicidad</p>
+        <div class="bg-gray-300 dark:bg-slate-700 h-4 rounded overflow-hidden">
+          <div id="happiness-bar" class="bg-blue-500 h-full" style="width:50%"></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-semibold mb-1">💖 Salud</p>
+        <div class="bg-gray-300 dark:bg-slate-700 h-4 rounded overflow-hidden">
+          <div id="health-bar" class="bg-purple-500 h-full" style="width:100%"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-6 flex justify-center gap-3">
+      <button id="feed-btn" class="btn-primary">🍗 Comer</button>
+      <button id="play-btn" class="btn-glow">🎮 Jugar</button>
+      <button id="sleep-btn" class="btn-gradient">😴 Dormir</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
 
   <!-- HERO SECTION -->
   <section class="relative overflow-hidden px-4 py-20 sm:py-32">
